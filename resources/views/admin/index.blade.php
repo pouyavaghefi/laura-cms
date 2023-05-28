@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title',config('admin.panel')." - "."داشبورد")
+
 @section('wrapper')
     <div class="content-page">
         <!-- Start content -->

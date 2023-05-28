@@ -17,11 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
+
+    protected $primaryKey = 'usr_name';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,7 +27,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'usr_password',
         'remember_token',
     ];
 
@@ -42,4 +40,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getAuthIdentifierName()
+    {
+        return 'usr_name';
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->usr_password;
+    }
 }
