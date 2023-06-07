@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamp('usr_last_login_at')->nullable();
             $table->unsignedBigInteger('usr_creator_id')->nullable();
             $table->unsignedBigInteger('usr_editor_id')->nullable();
-            $table->timestamp('usr_deleted_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
 
             $table->foreign('usr_creator_id')->on('users')->references('id')->onDelete('cascade');

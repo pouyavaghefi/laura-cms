@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Location;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SiteInfo extends Model
+class Province extends Model
 {
     use HasFactory;
-    protected $table = 'site_infos';
-    protected $guarded = [];
+    protected $table = 'provinces';
 }

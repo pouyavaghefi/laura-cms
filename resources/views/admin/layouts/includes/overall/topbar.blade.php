@@ -1,8 +1,31 @@
+@php
+    $ste_name = $siteInfo->ste_name;
+
+    // Split the string into an array of words
+    $ste_words = explode(' ', $ste_name);
+
+    // Store each word in separate variables
+    list($word1, $word2) = $ste_words;
+
+    // Check if the array contains exactly two words
+    if (count($ste_words) === 2) {
+        $show_spans = true;
+    } else {
+        $show_spans = false;
+    }
+@endphp
 <div class="topbar">
 
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="index.html" class="logo"><span>آقای<span>ادمین</span></span><i class="zmdi zmdi-layers"></i></a>
+        <a href="{{ $siteInfo->ste_url }}" target="_blank" class="logo">
+            @if($show_spans == true)
+                <span>{{ $word1 }}<span>&nbsp;{{ $word2 }}</span></span>
+            @else
+                <span>{{ $ste_name }}</span>
+            @endif
+            <i class="zmdi zmdi-layers"></i>
+        </a>
     </div>
 
     <!-- Button mobile view to collapse sidebar menu -->

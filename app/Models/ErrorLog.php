@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SiteInfo extends Model
+class ErrorLog extends Model
 {
     use HasFactory;
-    protected $table = 'site_infos';
+    protected $table = 'error_logs';
     protected $guarded = [];
 }

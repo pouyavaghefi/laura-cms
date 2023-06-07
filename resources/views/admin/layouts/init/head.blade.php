@@ -5,6 +5,9 @@
 <!--Morris Chart CSS -->
 <link rel="stylesheet" href="/assets/plugins/morris/morris.css">
 
+<!-- form Uploads -->
+<link href="/assets/plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
+
 <!-- App css -->
 <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
@@ -14,6 +17,7 @@
 <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
 <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
 <link href="/assets/css/own.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/datepicker.css" rel="stylesheet" type="text/css" />
 
 <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,3 +27,4 @@
 <![endif]-->
 
 <script src="/assets/js/modernizr.min.js"></script>
+

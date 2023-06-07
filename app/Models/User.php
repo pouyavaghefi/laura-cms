@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Member\Member;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,8 +19,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = [];
-
-    protected $primaryKey = 'usr_name';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -37,8 +36,8 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'usr_email_verified_at' => 'datetime',
+        'usr_password' => 'hashed',
     ];
 
     public function getAuthIdentifierName()
@@ -49,5 +48,10 @@ class User extends Authenticatable
     public function getAuthPassword()
     {
         return $this->usr_password;
+    }
+
+    public function member()
+    {
+        return $this->hasOne(Member::class, 'mbr_usr_id', 'id');
     }
 }

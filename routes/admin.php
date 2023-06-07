@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Settings\SiteInfoController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Profile\ProfileController;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Admin\AdminController;
 
 
 /*
@@ -31,7 +33,19 @@ use Illuminate\Support\Facades\Redirect;
 Route::middleware(['auth.admin'])->group(function () {
     Route::get('/', [DashboardController::class,'index'])->name('dashboard');
 
-    Route::get('/account', [DashboardController::class,'account'])->name('account');
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class,'viewDetails'])->name('details');
+        Route::patch('/', [ProfileController::class,'updateDetails'])->name('details.update');
+
+        Route::patch('/avatar', [ProfileController::class,'uploadAvatar'])->name('details.update.avatar');
+        Route::get('/avatar/display', [AdminController::class, 'showAvatar'])->name('details.show.avatar');
+        Route::get('/avatar/remove', [ProfileController::class, 'deleteAvatar'])->name('details.delete.avatar');
+
+        Route::patch('/password', [ProfileController::class,'changePassword'])->name('details.update.password');
+
+        Route::get('/me', [ProfileController::class,'viewOwn'])->name('own');
+        Route::get('/{id}', [ProfileController::class,'viewOthers'])->name('others');
+    });
 
     Route::prefix('settings')->name('settings.')->group(function () {
         Route::resource('/info', SiteInfoController::class);

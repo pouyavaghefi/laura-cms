@@ -8,19 +8,20 @@
         <!-- User -->
         <div class="user-box">
             <div class="user-img">
-                <img src="assets/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                <img src="{{ route('adm.profile.details.show.avatar') }}" alt="user-img" title="تصویر حساب کاربری شما" class="img-circle img-thumbnail img-responsive">
                 <div class="user-status offline"><i class="zmdi zmdi-dot-circle"></i></div>
             </div>
-            <h5><a href="#">علی یدالهی</a> </h5>
+            <h5><a href="#">{{ auth()->user()->usr_name }}</a> </h5>
             <ul class="list-inline">
                 <li>
-                    <a href="{{ route('adm.account') }}">
+                    <a href="{{ route('adm.profile.details') }}" class="{{ $currentRoute == 'adm.profile.details' ? 'text-custom' : '' }}"
+                     title="مشاهده اطلاعات حساب کاربری">
                         <i class="zmdi zmdi-settings"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('adm.logout') }}" class="text-custom">
+                    <a href="{{ route('adm.logout') }}" title="خروج از حساب کاربری">
                         <i class="zmdi zmdi-power"></i>
                     </a>
                 </li>
@@ -34,7 +35,7 @@
                 <li class="text-muted menu-title">ناوبری شما</li>
 
                 <li>
-                    <a href="{{ route('adm.dashboard') }}" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> داشبورد </span> </a>
+                    <a href="{{ route('adm.dashboard') }}" class="waves-effect {{ $currentRoute == 'adm.dashboard' ? 'active' : '' }}"><i class="zmdi zmdi-view-dashboard"></i> <span> داشبورد </span> </a>
                 </li>
 
                 <li class="has_sub">
