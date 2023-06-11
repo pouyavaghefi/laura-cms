@@ -31,6 +31,10 @@ class BaseSeeder extends Seeder
                     'bas_type' => 'gender',
                     'bas_value' => 'مرد',
                 ],
+                [
+                    'bas_type' => 'mediaLibrary',
+                    'bas_value' => 'کلی',
+                ],
             )
         );
     }

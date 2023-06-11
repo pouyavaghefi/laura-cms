@@ -54,4 +54,22 @@ class User extends Authenticatable
     {
         return $this->hasOne(Member::class, 'mbr_usr_id', 'id');
     }
+
+    public function own($id)
+    {
+        if($id == auth()->user()->id){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function userActive($status)
+    {
+        if($status == 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

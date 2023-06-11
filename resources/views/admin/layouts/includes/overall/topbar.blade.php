@@ -40,7 +40,7 @@
                     </button>
                 </li>
                 <li>
-                    <h4 class="page-title">داشبورد</h4>
+                    <h4 class="page-title">@yield('page-title')</h4>
                 </li>
             </ul>
 

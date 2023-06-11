@@ -4,6 +4,7 @@
 
     <div class="card-box">
         <h4 class="header-title m-t-0 m-b-30">رمز عبور</h4>
+        <h6 class="header-title red-para">رمز عبور بایستی شامل حروف بزرگ و کوچک انگلیسی و اعداد و نمادها باشد</h6><br>
 
         <div class="form-group">
                 <input type="password" name="password_old" class="form-control @error('password_old') is-invalid @enderror" placeholder="رمز عبور فعلی خود را وارد کنید">

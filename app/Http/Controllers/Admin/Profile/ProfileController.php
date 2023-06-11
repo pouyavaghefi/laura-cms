@@ -41,32 +41,6 @@ class ProfileController extends AdminController
         }
     }
 
-    public function uploadAvatar(Request $request)
-    {
-        $data = $request->validate([
-            'avatar' => 'required'
-        ]);
-
-        try {
-            $file = $data['avatar'];
-            $filename = Auth::user()->usr_name . ".jpg";
-
-            $avatar = Storage::get("adm/avatars/" . auth()->user()->usr_name . ".jpg");
-            if (is_null($avatar)) {
-                $file->storeAs('adm/avatars', $filename);
-            } else {
-                Storage::delete("adm/avatars/" . auth()->user()->usr_name . ".jpg");
-                $file->storeAs('adm/avatars', $filename);
-            }
-
-            return redirect()->back()->withSuccess('عکس پروفایل با موفقیت ویرایش گردید');
-        }catch (\Exception $e) {
-            $this->logError($e);
-
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
-        }
-    }
-
     public function changePassword(Request $request)
     {
         $data = $request->validate([
@@ -86,25 +60,6 @@ class ProfileController extends AdminController
                 return redirect()->back()->withErrors(['error' => 'رمز عبور فعلی شما با سوابق ما مطابقت ندارد']);
             }
         }catch (\Exception $e) {
-            $this->logError($e);
-
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
-        }
-    }
-
-    public function deleteAvatar()
-    {
-        try {
-            $filename = auth()->user()->usr_name . '.jpg';
-            $path = 'adm/avatars/' . $filename;
-
-            if (Storage::exists($path)) {
-                Storage::delete($path);
-                return redirect()->back()->withSuccess('عکس پروفایل با موفقیت حذف شد');
-            } else {
-                return redirect()->back()->withErrors(['errors' => 'عکس پروفایل پیدا نشد']);
-            }
-        } catch (\Exception $e) {
             $this->logError($e);
 
             return redirect()->back()->withErrors(['errors' => $e->getMessage()]);

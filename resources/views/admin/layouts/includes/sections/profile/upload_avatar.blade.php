@@ -4,6 +4,7 @@
 
     <div class="card-box">
         <h4 class="header-title m-t-0 m-b-30">عکس پروفایل</h4>
+        <h6 class="header-title red-para">حجم عکس پروفایل نباید از ۲ مگابایت بیشتر باشد</h6><br>
 
         <input type="file" name="avatar" class="dropify" data-default-file="" />
     </div>

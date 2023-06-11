@@ -7,6 +7,8 @@
     padding-right: calc(1.5em + 0.75rem) !important;
 }
 
+/* Button Loader */
+
 .button--loading::after {
     content: "";
     position: absolute;
@@ -33,4 +35,28 @@
     }
 }
 
+/* Checkmark & Cross Signs */
 
+.circle-checkmark {
+    font-family: sans-serif;
+    background: green;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 50%;
+}
+
+.circle-checkmark-light {
+    font-family: sans-serif;
+    background: lightblue;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 50%;
+}
+
+.cross-sign {
+    font-family: sans-serif;
+    background: red;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 50%;
+}

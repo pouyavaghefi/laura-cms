@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -20,5 +21,12 @@ class ToolsController extends Controller
         }else{
             Session::put('failedAttempt',1);
         }
+    }
+
+    public function setUsrLastLogin($id)
+    {
+        $findUser = User::find($id);
+        $findUser->usr_last_login_at = now();
+        $findUser->save();
     }
 }

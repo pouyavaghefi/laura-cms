@@ -9,6 +9,11 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Profile\ProfileController;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Member\MemberController;
+use App\Http\Controllers\Admin\Member\MemberAdminController;
+use App\Http\Controllers\Admin\Member\UserManagementController;
+use App\Http\Controllers\Admin\Profile\AvatarController;
+use App\Http\Controllers\Admin\Media\MediaLibraryController;
 
 
 /*
@@ -37,18 +42,32 @@ Route::middleware(['auth.admin'])->group(function () {
         Route::get('/', [ProfileController::class,'viewDetails'])->name('details');
         Route::patch('/', [ProfileController::class,'updateDetails'])->name('details.update');
 
-        Route::patch('/avatar', [ProfileController::class,'uploadAvatar'])->name('details.update.avatar');
-        Route::get('/avatar/display', [AdminController::class, 'showAvatar'])->name('details.show.avatar');
-        Route::get('/avatar/remove', [ProfileController::class, 'deleteAvatar'])->name('details.delete.avatar');
+        Route::patch('/avatar', [AvatarController::class,'uploadAvatar'])->name('details.update.avatar');
+        Route::get('/avatar/display', [AvatarController::class, 'showAvatar'])->name('details.show.avatar');
+        Route::get('/avatar/remove', [AvatarController::class, 'deleteAvatar'])->name('details.delete.avatar');
 
         Route::patch('/password', [ProfileController::class,'changePassword'])->name('details.update.password');
 
         Route::get('/me', [ProfileController::class,'viewOwn'])->name('own');
-        Route::get('/{id}', [ProfileController::class,'viewOthers'])->name('others');
+        Route::get('/{uname}', [ProfileController::class,'viewOthers'])->name('others');
     });
 
     Route::prefix('settings')->name('settings.')->group(function () {
         Route::resource('/info', SiteInfoController::class);
+    });
+
+    Route::prefix('members')->name('members.')->group(function () {
+        Route::resource('/', MemberController::class);
+        Route::resource('/admins', MemberAdminController::class);
+
+        Route::post('/change-activation', [UserManagementController::class, 'changeActivation']);
+    });
+
+    Route::prefix('media')->name('media.')->group(function () {
+        Route::get('/', [MediaLibraryController::class,'index'])->name('library');
+        Route::get('/upload', [MediaLibraryController::class,'upload'])->name('upload');
+        Route::post('/upload', [MediaLibraryController::class,'submitUpload'])->name('upload.submit');
+        Route::delete('/{id}', [MediaLibraryController::class,'deleteFile'])->name('delete');
     });
 
     Route::get('/logout', function () {

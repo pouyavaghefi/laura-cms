@@ -10,21 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function showAvatar()
-    {
-        $avatarPath = "adm/avatars/" . auth()->user()->usr_name . ".jpg";
-        $defaultAvatarPath = public_path("assets/img/adm.jpg");
-
-        if (Storage::exists($avatarPath)) {
-            $contents = Storage::get($avatarPath);
-        } else {
-            $contents = file_get_contents($defaultAvatarPath);
-        }
-
-        $headers = ['content-type' => 'image/jpeg'];
-        return response($contents, 200, $headers);
-    }
-
     protected function logError(\Exception $e)
     {
         $errorMessage = $e->getMessage();

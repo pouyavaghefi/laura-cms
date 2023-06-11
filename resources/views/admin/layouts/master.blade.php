@@ -35,9 +35,9 @@
             <!-- Right Sidebar -->
             @include('admin.layouts.includes.overall.notifications')
             <!-- /Right-bar -->
-
         </div>
         <!-- END wrapper -->
+
         @include('admin.layouts.init.script')
         @yield('scripts')
     </body>
