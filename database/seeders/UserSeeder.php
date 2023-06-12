@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
                     'usr_last_login_at' => null,
                     'usr_creator_id' => null,
                     'usr_editor_id' => null,
+                    'usr_deleted_at' => null,
                 ],
             )
         );
