@@ -35,7 +35,7 @@ class MemberSeeder extends Seeder
                     'mbr_mobile' => '09128347349',
                     'mbr_email' => 'vagefipouya@yahoo.com',
                     'mbr_secondary_email' => 'pvagefi@yahoo.co.uk',
-                    'mbr_post_code' => null,
+                    'mbr_postal_code' => null,
                     'mbr_address' => 'سعادت اباد',
                     'mbr_referer_code' => null,
                     'mbr_personal_code' => null,
