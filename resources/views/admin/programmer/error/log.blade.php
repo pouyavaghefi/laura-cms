@@ -1,16 +1,15 @@
 @extends('admin.layouts.master')
 
-@section('title',config('admin.panel')." - "."داشبورد")
+@section('title',config('admin.panel')." - "."ارور لاگ")
 
-@section('page-title', 'کاربران')
+@section('page-title', 'ارور لاگ')
 
 @section('wrapper')
     <div class="content-page">
         <!-- Start content -->
         <div class="content">
             <div class="container">
-                @include('admin.layouts.includes.samples.members-search')
-                @include('admin.layouts.includes.sections.members.members-table')
+                @include('admin.layouts.includes.sections.error.log-table')
             </div> <!-- container -->
         </div> <!-- content -->
 
@@ -21,13 +20,13 @@
 @section('scripts')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function changeActivation(userId, isActive, csrfToken) {
+        function removeStar(id, csrfToken) {
             var confirmation = confirm("آیا از انجام این کار اطمینان دارید؟");
             if (confirmation) {
                 $.ajax({
-                    url: '/admin/members/change-activation',
+                    url: '/admin/error/remove_star',
                     type: 'POST',
-                    data: {userId: userId, isActive: isActive},
+                    data: {id: id},
                     headers: {
                         'X-CSRF-TOKEN': csrfToken
                     },

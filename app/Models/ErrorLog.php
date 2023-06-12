@@ -10,4 +10,9 @@ class ErrorLog extends Model
     use HasFactory;
     protected $table = 'error_logs';
     protected $guarded = [];
+
+    public function errMaker()
+    {
+        return $this->hasOne(User::class, 'id', 'err_creator_id');
+    }
 }

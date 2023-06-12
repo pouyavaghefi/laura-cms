@@ -2,6 +2,8 @@
 
 @section('title',config('admin.panel')." - "."داشبورد")
 
+@section('page-title', 'کاربران مدیر')
+
 @section('wrapper')
     <div class="content-page">
         <!-- Start content -->

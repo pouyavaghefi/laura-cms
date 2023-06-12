@@ -13,7 +13,7 @@ class SiteSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('site_info')->insert(
+        DB::table('site_infos')->insert(
             array(
                 [
                     'ste_name' => 'دی گستر',

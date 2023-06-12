@@ -131,7 +131,7 @@ class MediaLibraryController extends Controller
         }
     }
 
-    public function deleteFile($id)
+    public function destroyFile($id)
     {
         try {
             $media = MediaLibrary::find($id);

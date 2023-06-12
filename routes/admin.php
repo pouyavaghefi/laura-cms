@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Member\MemberAdminController;
 use App\Http\Controllers\Admin\Member\UserManagementController;
 use App\Http\Controllers\Admin\Profile\AvatarController;
 use App\Http\Controllers\Admin\Media\MediaLibraryController;
+use App\Http\Controllers\Admin\Programmer\ErrorLogController;
 
 
 /*
@@ -61,13 +62,32 @@ Route::middleware(['auth.admin'])->group(function () {
         Route::resource('/admins', MemberAdminController::class);
 
         Route::post('/change-activation', [UserManagementController::class, 'changeActivation']);
+
+        Route::prefix('media')->name('add.')->group(function () {
+            Route::get('/add', [UserManagementController::class, 'addMemberView'])->name('view');
+            Route::post('/add', [UserManagementController::class, 'addMemberProcess'])->name('process');
+        });
     });
 
     Route::prefix('media')->name('media.')->group(function () {
         Route::get('/', [MediaLibraryController::class,'index'])->name('library');
         Route::get('/upload', [MediaLibraryController::class,'upload'])->name('upload');
         Route::post('/upload', [MediaLibraryController::class,'submitUpload'])->name('upload.submit');
-        Route::delete('/{id}', [MediaLibraryController::class,'deleteFile'])->name('delete');
+        Route::delete('/{id}', [MediaLibraryController::class,'destroyFile'])->name('delete');
+    });
+
+    Route::prefix('error')->name('error.')->group(function () {
+        Route::get('/log', [ErrorLogController::class, 'index'])->name('log');
+        Route::get('/info/{id}', [ErrorLogController::class, 'info'])->name('info');
+
+        Route::post('/remove_star', [ErrorLogController::class, 'removeStar'])->name('removeStar');
+        Route::get('/make_star/{id}', [ErrorLogController::class, 'makeStar'])->name('makeStar');
+
+        Route::prefix('delete')->name('delete')->group(function () {
+            Route::delete('/{id}', [ErrorLogController::class, 'destroy']);
+            Route::get('/all', [ErrorLogController::class, 'destroyAll'])->name('.all');
+            Route::get('/all_except_stars', [ErrorLogController::class, 'destroyAllExceptStars'])->name('.all.exceptStars');
+        });
     });
 
     Route::get('/logout', function () {
