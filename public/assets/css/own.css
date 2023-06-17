@@ -1,5 +1,11 @@
+/* Custom Classes */
+
 .red-para{
     color:red !important;
+}
+
+.margin-top{
+    margin-top:5px !important;
 }
 
 .text-bold{
@@ -9,6 +15,17 @@
 .is-invalid {
     border-color: #dc3545 !important;
     padding-right: calc(1.5em + 0.75rem) !important;
+}
+
+/* Button Group */
+
+.btn-group {
+    display: inline-flex; /* Display the buttons inline */
+}
+
+.btn-group a,
+.btn-group form {
+    margin-right: 5px; /* Add some spacing between buttons */
 }
 
 /* Button Loader */
@@ -73,3 +90,6 @@
 .fa-star {
     font-size: 20px;
 }
+
+
+

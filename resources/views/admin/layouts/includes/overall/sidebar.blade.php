@@ -39,6 +39,14 @@
                 </li>
 
                 <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect {{ in_array($currentRoute, ['adm.menus.index', 'adm.menus.create']) ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> منو </span> <span class="menu-arrow"></span></a>
+                    <ul class="list-unstyled">
+                        <li class="{{ $currentRoute == 'adm.menus.index' ? 'active' : '' }}"><a href="{{ route('adm.menus.index') }}">منو ها</a></li>
+                        <li class="{{ $currentRoute == 'adm.menus.create' ? 'active' : '' }}"><a href="{{ route('adm.menus.create') }}">ایجاد منو</a></li>
+                    </ul>
+                </li>
+
+                <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect {{ in_array($currentRoute, ['adm.members.index', 'adm.members.admins.index', 'adm.members.add.view']) ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> کاربران </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li class="{{ $currentRoute == 'adm.members.index' ? 'active' : '' }}"><a href="{{ route('adm.members.index') }}">کاربران سامانه</a></li>

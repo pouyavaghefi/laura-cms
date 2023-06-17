@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\Member\UserManagementController;
 use App\Http\Controllers\Admin\Profile\AvatarController;
 use App\Http\Controllers\Admin\Media\MediaLibraryController;
 use App\Http\Controllers\Admin\Programmer\ErrorLogController;
+use App\Http\Controllers\Admin\Menu\MenuController;
+use App\Http\Controllers\Admin\Menu\SubsetController;
 
 
 /*
@@ -38,6 +40,26 @@ use App\Http\Controllers\Admin\Programmer\ErrorLogController;
 
 Route::middleware(['auth.admin'])->group(function () {
     Route::get('/', [DashboardController::class,'index'])->name('dashboard');
+
+    Route::prefix('menus')->name('menus.')->group(function () {
+        Route::get('/', [MenuController::class,'index'])->name('index');
+        Route::get('/create', [MenuController::class,'create'])->name('create');
+        Route::post('/create', [MenuController::class,'store'])->name('store');
+        Route::get('/{menu}/edit', [MenuController::class,'edit'])->name('edit');
+        Route::patch('/{menu}/update', [MenuController::class,'update'])->name('update');
+        Route::delete('/{menu}/remove', [MenuController::class,'destroy'])->name('delete');
+
+        Route::prefix('/{menuId}/subsets')->group(function () {
+            Route::get('/', [SubsetController::class, 'viewSubsets'])->name('subsets');
+            Route::get('/create', [SubsetController::class, 'createSubsets'])->name('subsets.create');
+            Route::post('/create', [SubsetController::class, 'storeSubsets'])->name('subsets.store');
+            Route::get('/edit/{linkId}', [SubsetController::class, 'editSubsets'])->name('subsets.edit');
+            Route::patch('/update/{linkId}', [SubsetController::class, 'updateSubsets'])->name('subsets.update');
+            Route::delete('/remove/{linkId}', [SubsetController::class, 'destroySubsets'])->name('subsets.delete');
+        });
+
+        Route::get('/change-subset-status', [SubsetController::class, 'changeSubsetStatus']);
+    });
 
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class,'viewDetails'])->name('details');

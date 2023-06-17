@@ -35,6 +35,18 @@ class BaseSeeder extends Seeder
                     'bas_type' => 'mediaLibrary',
                     'bas_value' => 'کلی',
                 ],
+                [
+                    'bas_type' => 'menuPosition',
+                    'bas_value' => 'بالا',
+                ],
+                [
+                    'bas_type' => 'menuPosition',
+                    'bas_value' => 'وسط',
+                ],
+                [
+                    'bas_type' => 'menuPosition',
+                    'bas_value' => 'پایین',
+                ],
             )
         );
     }
