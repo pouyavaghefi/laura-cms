@@ -33,4 +33,9 @@ class MenuLink extends Model
             return $this->mel_label;
         }
     }
+
+    public function children()
+    {
+        return $this->hasMany(MenuLink::class, 'mel_parent_id', 'id');
+    }
 }
