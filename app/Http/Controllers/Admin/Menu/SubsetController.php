@@ -11,9 +11,10 @@ class SubsetController extends Controller
 {
     public function viewSubsets($id)
     {
+        $countParents = MenuLink::where('mel_parent_id',null)->count();
         $menu = Menu::find($id)::with('menuLinks')->first();
 
-        return view('admin.menus.subsets.subsets', compact('menu'));
+        return view('admin.menus.subsets.subsets', compact('menu', 'countParents'));
     }
 
     public function createSubsets($id)
@@ -101,5 +102,21 @@ class SubsetController extends Controller
     {
         MenuLink::where('mel_men_id',$menuId)->where('id',$linkId)->delete();
         return redirect()->back()->withSuccess('زیرمنوی مورد نظر با موفقیت حذف گردید');
+    }
+
+    public function changeSubsetPriority(Request $request, $id)
+    {
+        $link = MenuLink::find($id);
+        $prio = $request->input('name');
+        $existingLink = MenuLink::where('mel_priority', $prio)->first();
+        if(!is_null($existingLink)){
+            $existingLink = MenuLink::where('mel_priority', $prio)->first();
+            $existingLink->mel_priority = null;
+            $existingLink->save();
+        }
+        $link->mel_priority = $prio;
+        $link->save();
+
+        return response()->json(['success' => false, 'message' => 'اولویت لینک مورد با موفقیت ثبت']);
     }
 }

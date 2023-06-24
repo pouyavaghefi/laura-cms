@@ -59,6 +59,8 @@ Route::middleware(['auth.admin'])->group(function () {
         });
 
         Route::get('/change-subset-status', [SubsetController::class, 'changeSubsetStatus']);
+        Route::post('/change-subset-priority/{id}', [SubsetController::class, 'changeSubsetPriority'])->name('change.subset.priority');
+        Route::post('/change-subset-priority/{id}', [SubsetController::class, 'changeSubsetPriority'])->name('change.subset.priority');
     });
 
     Route::prefix('profile')->name('profile.')->group(function () {

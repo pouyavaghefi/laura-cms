@@ -43,5 +43,29 @@
                 });
             }
         }
+        function editPriority(linkId,countParents) {
+            let numParents = countParents;
+            let newName = prompt('اولویت این زیر منو را وارد کنید (از بین ' + numParents + ' والد)');
+            if (newName) {
+                // Send an AJAX request to update the exam name
+                $.ajax({
+                    url: "{{ route('adm.menus.change.subset.priority', ['id' => ':id']) }}".replace(':id', linkId),
+                    type: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id: linkId,
+                        name: newName
+                    },
+                    success: function(response) {
+                        alert(response.message);
+                        // Reload the current page to reflect the changes
+                        location.reload();
+                    },
+                    error: function(xhr) {
+                        alert(xhr.responseText);
+                    }
+                });
+            }
+        }
     </script>
 @endsection

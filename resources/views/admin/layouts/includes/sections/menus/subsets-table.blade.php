@@ -43,6 +43,14 @@
 
                                         <button class="btn btn-danger">حذف</button>
                                     </form>
+                                    @if(empty($link->mel_parent_id))
+                                        <a onclick="editPriority({{ $link->id }},{{ $countParents }})" class="btn btn-info btn-success">
+                                            ثبت اولویت
+                                            @if(!empty($link->mel_priority))
+                                            ({{ $link->mel_priority }})
+                                            @endif
+                                        </a>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
