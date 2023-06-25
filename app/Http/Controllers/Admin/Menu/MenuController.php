@@ -35,13 +35,15 @@ class MenuController extends Controller
             'men_name' => 'required',
             'men_description' => 'required',
             'men_position' => 'nullable',
+            'men_bg_color' => 'nullable',
         ]);
 
         $menuCreated = Menu::create([
             'men_name' => $data['men_name'],
             'men_description' => $data['men_description'],
             'men_creator_id' => auth()->user()->id,
-            'men_position' => $data['men_position']
+            'men_position' => $data['men_position'],
+            'men_bg_color' => $data['men_bg_color'],
         ]);
 
         return redirect()->route('adm.menus.subsets',$menuCreated->id)->withSuccess('منوی شما با موفقیت ثبت شد');
@@ -64,11 +66,13 @@ class MenuController extends Controller
             'men_name' => 'required',
             'men_description' => 'required',
             'men_position' => 'nullable',
+            'men_bg_color' => 'nullable',
         ]);
 
         $menu->men_name = $data['men_name'];
         $menu->men_description = $data['men_description'];
         $menu->men_position = $data['men_position'];
+        $menu->men_bg_color = $data['men_bg_color'];
         $menu->save();
 
         return redirect()->route('adm.menus.index')->withSuccess('منوی مورد نظر با موفقیت ویرایش گردید');

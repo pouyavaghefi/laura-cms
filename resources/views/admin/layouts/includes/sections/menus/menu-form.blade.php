@@ -41,6 +41,18 @@
     <br>
 
     <div class="form-group">
+        <label class="col-md-2 control-label">رنگ پس زمینه</label>
+        <div class="col-md-10">
+            <input type="color" name="men_bg_color" class="form-control @error('men_bg_color') is-invalid @enderror" placeholder="رنگ منو را وارد کنید" value="{{ old('men_bg_color' ,!empty($menu) ? $menu->men_bg_color : '') }}">
+            @error('men_bg_color')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
         <label class="col-md-2 control-label"></label>
         <div class="col-sm-10">
             <button id="button" class="btn btn-primary" onclick="showLoader(this)">
