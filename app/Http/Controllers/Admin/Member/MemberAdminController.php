@@ -17,7 +17,7 @@ class MemberAdminController extends Controller
             $query->where('usr_is_admin', 1);
         })->paginate(10);
 
-        return view('admin.members.admins.index', compact('members'));
+        return view('admin.members.admins', compact('members'));
     }
 
     /**

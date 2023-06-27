@@ -9,4 +9,6 @@ class BaseInfo extends Model
 {
     use HasFactory;
     protected $table = 'base_infos';
+    protected $guarded = [];
+    public $timestamps = false;
 }

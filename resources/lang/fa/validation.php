@@ -206,5 +206,7 @@ return [
 		"password_old" => "رمز قدیمی",
 		"password_new" => "رمز جدید",
 		"password_new_confirmation" => "تایید رمز جدید",
+		"usr_name" => "نام کاربری",
+		"mbr_type" => "نوع حساب کاربر",
     ],
 ];

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('usr_email')->nullable()->unique();
             $table->timestamp('usr_email_verified_at')->nullable();
             $table->string('usr_avatar')->nullable();
-            $table->string('usr_password');
+            $table->string('usr_password')->nullable();
             $table->rememberToken();
             $table->timestamp('usr_last_login_at')->nullable();
             $table->unsignedBigInteger('usr_creator_id')->nullable();

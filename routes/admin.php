@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Media\MediaLibraryController;
 use App\Http\Controllers\Admin\Programmer\ErrorLogController;
 use App\Http\Controllers\Admin\Menu\MenuController;
 use App\Http\Controllers\Admin\Menu\SubsetController;
+use App\Http\Controllers\Admin\Programmer\BaseInfoController;
 
 
 /*
@@ -87,10 +88,8 @@ Route::middleware(['auth.admin'])->group(function () {
 
         Route::post('/change-activation', [UserManagementController::class, 'changeActivation']);
 
-        Route::prefix('media')->name('add.')->group(function () {
-            Route::get('/add', [UserManagementController::class, 'addMemberView'])->name('view');
-            Route::post('/add', [UserManagementController::class, 'addMemberProcess'])->name('process');
-        });
+        Route::get('/add', [UserManagementController::class, 'addMemberView'])->name('add');
+        Route::post('/add', [UserManagementController::class, 'addMember']);
     });
 
     Route::prefix('media')->name('media.')->group(function () {
@@ -112,6 +111,16 @@ Route::middleware(['auth.admin'])->group(function () {
             Route::get('/all', [ErrorLogController::class, 'destroyAll'])->name('.all');
             Route::get('/all_except_stars', [ErrorLogController::class, 'destroyAllExceptStars'])->name('.all.exceptStars');
         });
+    });
+
+    Route::prefix('base')->name('base.')->group(function () {
+        Route::get('/info', [BaseInfoController::class, 'index'])->name('info');
+        Route::get('/info/reset', [BaseInfoController::class, 'reset'])->name('reset');
+        Route::get('/info/new', [BaseInfoController::class, 'create'])->name('new');
+        Route::post('/info/new', [BaseInfoController::class, 'store'])->name('store');
+        Route::delete('/info/delete/{id}', [BaseInfoController::class, 'delete'])->name('delete');
+        Route::get('/info/edit/{id}', [BaseInfoController::class, 'edit'])->name('edit');
+        Route::patch('/info/edit/{id}', [BaseInfoController::class, 'update'])->name('update');
     });
 
     Route::get('/logout', function () {

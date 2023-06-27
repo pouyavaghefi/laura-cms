@@ -51,7 +51,7 @@
                     <ul class="list-unstyled">
                         <li class="{{ $currentRoute == 'adm.members.index' ? 'active' : '' }}"><a href="{{ route('adm.members.index') }}">کاربران سامانه</a></li>
                         <li class="{{ $currentRoute == 'adm.members.admins.index' ? 'active' : '' }}"><a href="{{ route('adm.members.admins.index') }}">کاربران ادمین</a></li>
-                        <li class="{{ $currentRoute == 'adm.members.add.view' ? 'active' : '' }}"><a href="{{ route('adm.members.add.view') }}">اضافه کردن کاربر</a></li>
+                        <li class="{{ $currentRoute == 'adm.members.add' ? 'active' : '' }}"><a href="{{ route('adm.members.add') }}">اضافه کردن کاربر</a></li>
                     </ul>
                 </li>
 
@@ -64,10 +64,10 @@
                 </li>
 
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect {{ $currentRoute == 'adm.error.log' ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> برنامه نویس </span> <span class="menu-arrow"></span></a>
+                    <a href="javascript:void(0);" class="waves-effect {{ in_array($currentRoute, ['adm.error.log', 'adm.base.info']) ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> برنامه نویس </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li class="{{ $currentRoute == 'adm.error.log' ? 'active' : '' }}"><a href="{{ route('adm.error.log') }}">ارور لاگ</a></li>
-                        <li class="{{ $currentRoute == 'adm.settings.info.index' ? 'active' : '' }}"><a href="{{ route('adm.settings.info.index') }}">اطلاعات پایه</a></li>
+                        <li class="{{ $currentRoute == 'adm.base.info' ? 'active' : '' }}"><a href="{{ route('adm.base.info') }}">اطلاعات پایه</a></li>
                     </ul>
                 </li>
 
