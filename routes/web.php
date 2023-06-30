@@ -16,5 +16,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-
+    return view('frontend.index');
 });
+
+Route::get('/auth', function () {
+    return view('frontend.auth.index');
+});
+
