@@ -18,6 +18,8 @@ use App\Http\Controllers\Admin\Programmer\ErrorLogController;
 use App\Http\Controllers\Admin\Menu\MenuController;
 use App\Http\Controllers\Admin\Menu\SubsetController;
 use App\Http\Controllers\Admin\Programmer\BaseInfoController;
+use App\Http\Controllers\Admin\Settings\AuthUserController;
+use App\Http\Controllers\Admin\Settings\AuthAdminController;
 
 
 /*
@@ -30,8 +32,6 @@ use App\Http\Controllers\Admin\Programmer\BaseInfoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +80,13 @@ Route::middleware(['auth.admin'])->group(function () {
 
     Route::prefix('settings')->name('settings.')->group(function () {
         Route::resource('/info', SiteInfoController::class);
+
+        Route::prefix('settings')->name('auth.')->group(function () {
+            Route::get('/auth-user', [AuthUserController::class, 'view'])->name('users');
+            Route::post('/auth-user', [AuthUserController::class, 'submit']);
+            Route::get('/auth-admin', [AuthAdminController::class, 'view'])->name('admins');
+            Route::post('/auth-admin', [AuthAdminController::class, 'submit']);
+        });
     });
 
     Route::prefix('members')->name('members.')->group(function () {
