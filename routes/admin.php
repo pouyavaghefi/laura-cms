@@ -19,7 +19,6 @@ use App\Http\Controllers\Admin\Menu\MenuController;
 use App\Http\Controllers\Admin\Menu\SubsetController;
 use App\Http\Controllers\Admin\Programmer\BaseInfoController;
 use App\Http\Controllers\Admin\Settings\AuthUserController;
-use App\Http\Controllers\Admin\Settings\AuthAdminController;
 
 
 /*
@@ -82,10 +81,10 @@ Route::middleware(['auth.admin'])->group(function () {
         Route::resource('/info', SiteInfoController::class);
 
         Route::prefix('settings')->name('auth.')->group(function () {
-            Route::get('/auth-user', [AuthUserController::class, 'view'])->name('users');
-            Route::post('/auth-user', [AuthUserController::class, 'submit']);
-            Route::get('/auth-admin', [AuthAdminController::class, 'view'])->name('admins');
-            Route::post('/auth-admin', [AuthAdminController::class, 'submit']);
+            Route::get('/auth-user', [AuthUserController::class, 'viewAuthUser'])->name('users');
+            Route::post('/auth-user', [AuthUserController::class, 'submitAuthUser']);
+            Route::get('/auth-admin', [AuthUserController::class, 'viewAuthAdmin'])->name('admins');
+            Route::post('/auth-admin', [AuthUserController::class, 'submitAuthAdmin']);
         });
     });
 

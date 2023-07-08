@@ -47,6 +47,26 @@ class BaseSeeder extends Seeder
                     'bas_type' => 'menuPosition',
                     'bas_value' => 'پایین',
                 ],
+                [
+                    'bas_type' => 'authUserBg',
+                    'bas_value' => '',
+                ],
+                [
+                    'bas_type' => 'authUserLogo',
+                    'bas_value' => '',
+                ],
+                [
+                    'bas_type' => 'authAdminTwoFactor',
+                    'bas_value' => '',
+                ],
+                [
+                    'bas_type' => 'authAdminRightClick',
+                    'bas_value' => '',
+                ],
+                [
+                    'bas_type' => 'authAdminRedirectTimer',
+                    'bas_value' => '',
+                ],
             )
         );
     }

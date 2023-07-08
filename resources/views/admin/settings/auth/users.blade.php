@@ -32,13 +32,13 @@
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">رنگ پس زمینه</label>
                                             <div class="col-md-10">
-                                                <input type="color" name="bg" class="form-control" value="{{ $authUserBg->bas_value }}">
+                                                <input type="color" name="bg" class="form-control" value="{{ $authUserBg }}">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">تصویر لوگو</label>
                                             <div class="col-md-10">
-                                                <input type="text" name="logo" class="form-control" value="{{ $authUserBg->bas_value }}">
+                                                <input type="text" name="logo" class="form-control" value="{{ $authUserLogo }}">
                                             </div>
                                         </div>
                                         <div class="form-group m-b-0">
