@@ -23,18 +23,18 @@ class SiteInfoController extends AdminController
      */
     public function update(Request $request, $info)
     {
-        try {
-            $data = $request->validate([
-                'ste_name' => 'required',
-                'ste_description' => 'required',
-                'ste_url' => 'required',
-                'ste_logo' => 'nullable',
-                'ste_favicon' => 'nullable',
-                'ste_email' => 'required',
-                'ste_phone' => 'required',
-                'ste_address' => 'required',
-            ]);
+        $data = $request->validate([
+            'ste_name' => 'required',
+            'ste_description' => 'nullable',
+            'ste_url' => 'required',
+            'ste_logo' => 'nullable',
+            'ste_favicon' => 'nullable',
+            'ste_email' => 'nullable',
+            'ste_phone' => 'nullable',
+            'ste_address' => 'nullable',
+        ]);
 
+        try {
             $siteInfo = SiteInfo::find($info);
             $siteInfo->update($data);
 

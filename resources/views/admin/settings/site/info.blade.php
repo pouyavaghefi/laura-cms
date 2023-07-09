@@ -22,6 +22,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box">
+                            @include('admin.layouts.partials.alerts')
                             <div class="row">
                                 @forelse($infos as $info)
                                     @php($menuCounter = 0)
