@@ -123,7 +123,7 @@
                                                     <input type="file" class="form-control-file" id="logo" name="ste_logo">
                                                 </div>
                                             </div>
-                                            @if(\File::exists($imagePath))
+                                            @if(\File::exists($logoPath))
                                                 <a target="_blank" href="{{ $imagePath }}">مشاهده لوگوی کنونی</a>
                                             @endif
 
