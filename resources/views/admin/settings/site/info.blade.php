@@ -115,19 +115,19 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="logo">لوگو</label>
                                                 <div class="col-sm-7">
-                                                    <input type="file" class="form-control-file" id="logo" name="ste_logo">
+                                                    <input type="text" class="form-control" id="logo" name="ste_logo" placeholder="لوگو سایت را وارد کنید" value="{{ $info->ste_logo }}">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="icon">آیکن</label>
                                                 <div class="col-sm-7">
-                                                    <input type="file" class="form-control-file" id="icon" name="ste_icon">
+                                                    <input type="text" class="form-control" id="icon" name="ste_icon" placeholder="آیکن سایت را وارد کنید" value="{{ $info->ste_icon }}">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <button class="btn btn-primary btn-lg btn-block">ثبت</button>
+                                                <button class="btn btn-primary btn-lg btn-block" onclick="showLoader(this)">ثبت</button>
                                             </div>
                                         </form>
                                     </div><!-- end col -->

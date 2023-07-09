@@ -78,7 +78,7 @@ Route::middleware(['auth.admin'])->group(function () {
     });
 
     Route::prefix('settings')->name('settings.')->group(function () {
-        Route::resource('/info', SiteInfoController::class);
+        Route::resource('/info', SiteInfoController::class)->only(['index','update','destroy']);
 
         Route::prefix('settings')->name('auth.')->group(function () {
             Route::get('/auth-user', [AuthUserController::class, 'viewAuthUser'])->name('users');
