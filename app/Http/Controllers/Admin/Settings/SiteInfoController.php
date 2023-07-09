@@ -45,7 +45,7 @@ class SiteInfoController extends AdminController
             $siteInfo->ste_address = $data['ste_address'];
 
             if ($request->hasFile('ste_logo')) {
-                $logo = $request->file('image');
+                $logo = $request->file('ste_logo');
                 $extension_logo = $logo->getClientOriginalExtension();
                 $filename_logo = 'logo' . '.' . $extension_logo;
                 $final_filename_logo = 'logo' . '.' . 'png';

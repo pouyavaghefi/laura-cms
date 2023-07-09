@@ -38,9 +38,10 @@
                                                 @endif
                                             </b>
                                         </h4>
-                                        <form method="POST" action="{{ route('adm.settings.info.update',['info'=>$info->id]) }}" class="form-horizontal">
+                                        <form method="POST" action="{{ route('adm.settings.info.update',['info'=>$info->id]) }}" class="form-horizontal" enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')
+
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="name">نام</label>
                                                 <div class="col-sm-7">
