@@ -114,19 +114,31 @@
                                                 @endif
                                             </div>
 
+                                            @php
+                                                $logoPath = public_path('frontend/img/logo.png');
+                                            @endphp
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="logo">لوگو</label>
                                                 <div class="col-sm-7">
                                                     <input type="file" class="form-control-file" id="logo" name="ste_logo">
                                                 </div>
                                             </div>
+                                            @if(\File::exists($imagePath))
+                                                <a target="_blank" href="{{ $imagePath }}">مشاهده لوگوی کنونی</a>
+                                            @endif
 
+                                            @php
+                                                $iconPath = public_path('frontend/img/icon.png');
+                                            @endphp
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="icon">آیکن</label>
                                                 <div class="col-sm-7">
-                                                    <input type="file" class="form-control-file" id="icon" name="ste_icon">
+                                                    <input type="file" class="form-control-file" id="icon" name="ste_favicon">
                                                 </div>
                                             </div>
+                                            @if(\File::exists($iconPath))
+                                                <a target="_blank" href="{{ $iconPath }}">مشاهده آیکن کنونی</a>
+                                            @endif
 
                                             <div class="form-group">
                                                 <button class="btn btn-primary btn-lg btn-block">ثبت</button>

@@ -56,7 +56,7 @@ class SiteInfoController extends AdminController
             }
 
             if ($request->hasFile('ste_favicon')) {
-                $icon = $request->file('image');
+                $icon = $request->file('ste_favicon');
                 $extension_icon = $icon->getClientOriginalExtension();
                 $filename_icon = 'icon' . '.' . $extension_icon;
                 $final_filename_icon = 'icon' . '.' . 'png';
