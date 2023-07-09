@@ -48,20 +48,22 @@ class SiteInfoController extends AdminController
                 $logo = $request->file('image');
                 $extension_logo = $logo->getClientOriginalExtension();
                 $filename_logo = 'logo' . '.' . $extension_logo;
+                $final_filename_logo = 'logo' . '.' . 'png';
                 $path_logo = public_path('frontend/img/' . $filename_logo);
                 $pngImageLogo = Image::make($logo)->encode('png', 100);
                 $pngImageLogo->save($path_logo);
-                $siteInfo->ste_logo = $filename_logo;
+                $siteInfo->ste_logo = $final_filename_logo;
             }
 
             if ($request->hasFile('ste_favicon')) {
                 $icon = $request->file('image');
                 $extension_icon = $icon->getClientOriginalExtension();
                 $filename_icon = 'icon' . '.' . $extension_icon;
+                $final_filename_icon = 'icon' . '.' . 'png';
                 $path_icon = public_path('frontend/img/' . $filename_icon);
                 $pngImageIcon = Image::make($icon)->encode('png', 100);
                 $pngImageIcon->save($path_icon);
-                $siteInfo->ste_icon = $filename_icon;
+                $siteInfo->ste_favicon = $final_filename_icon;
             }
             $siteInfo->save();
 
