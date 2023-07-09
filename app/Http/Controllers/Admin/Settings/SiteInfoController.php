@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Controller;
 use App\Models\SiteInfo;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class SiteInfoController extends AdminController
 {
@@ -36,7 +37,33 @@ class SiteInfoController extends AdminController
 
         try {
             $siteInfo = SiteInfo::find($info);
-            $siteInfo->update($data);
+            $siteInfo->ste_name = $data['ste_name'];
+            $siteInfo->ste_description = $data['ste_description'];
+            $siteInfo->ste_url = $data['ste_url'];
+            $siteInfo->ste_email = $data['ste_email'];
+            $siteInfo->ste_phone = $data['ste_phone'];
+            $siteInfo->ste_address = $data['ste_address'];
+
+            if ($request->hasFile('ste_logo')) {
+                $logo = $request->file('image');
+                $extension_logo = $logo->getClientOriginalExtension();
+                $filename_logo = 'logo' . '.' . $extension_logo;
+                $path_logo = public_path('frontend/img/' . $filename_logo);
+                $pngImageLogo = Image::make($logo)->encode('png', 100);
+                $pngImageLogo->save($path_logo);
+                $siteInfo->ste_logo = $filename_logo;
+            }
+
+            if ($request->hasFile('ste_favicon')) {
+                $icon = $request->file('image');
+                $extension_icon = $icon->getClientOriginalExtension();
+                $filename_icon = 'icon' . '.' . $extension_icon;
+                $path_icon = public_path('frontend/img/' . $filename_icon);
+                $pngImageIcon = Image::make($icon)->encode('png', 100);
+                $pngImageIcon->save($path_icon);
+                $siteInfo->ste_icon = $filename_icon;
+            }
+            $siteInfo->save();
 
             return redirect()->back()->withSuccess('تغییرات با موفقیت اعمال شد');
         }catch (\Exception $e) {
