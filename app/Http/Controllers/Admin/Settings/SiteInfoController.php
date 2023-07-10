@@ -46,25 +46,25 @@ class SiteInfoController extends AdminController
 
             if ($request->hasFile('ste_logo')) {
                 $logo = $request->file('ste_logo');
-                $filename = 'logo.png'; // Set the desired filename here
+                $filename = 'logo.png';
                 $destinationPath = public_path('frontend/img');
                 $logo->move($destinationPath, $filename);
                 $siteInfo->ste_logo = $filename;
             }
 
             if ($request->hasFile('ste_favicon')) {
-                $logo = $request->file('ste_favicon');
-                $filename = 'favicon.png'; // Set the desired filename here
+                $icon = $request->file('ste_favicon');
+                $filename = 'favicon.png';
                 $destinationPath = public_path('frontend/img');
-                $logo->move($destinationPath, $filename);
+                $icon->move($destinationPath, $filename);
                 $siteInfo->ste_favicon = $filename;
             }
 
             if ($request->hasFile('ste_loader')) {
-                $logo = $request->file('ste_loader');
-                $filename = 'loader.gif'; // Set the desired filename here
+                $loader = $request->file('ste_loader');
+                $filename = 'loader.gif';
                 $destinationPath = public_path('frontend/img');
-                $logo->move($destinationPath, $filename);
+                $loader->move($destinationPath, $filename);
                 $siteInfo->ste_loader = $filename;
             }
             $siteInfo->save();
