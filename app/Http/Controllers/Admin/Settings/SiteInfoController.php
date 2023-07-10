@@ -46,26 +46,26 @@ class SiteInfoController extends AdminController
 
             if ($request->hasFile('ste_logo')) {
                 $logo = $request->file('ste_logo');
-                $extension_logo = $logo->getClientOriginalExtension();
-                $filename_logo = 'logo' . '.' . $extension_logo;
-                $path_logo = public_path('frontend/img/' . $filename_logo);
-                $siteInfo->ste_logo = $filename_logo;
+                $filename = 'logo.png'; // Set the desired filename here
+                $destinationPath = public_path('frontend/img');
+                $logo->move($destinationPath, $filename);
+                $siteInfo->ste_logo = $filename;
             }
 
             if ($request->hasFile('ste_favicon')) {
-                $icon = $request->file('ste_favicon');
-                $extension_icon = $icon->getClientOriginalExtension();
-                $filename_icon = 'icon' . '.' . $extension_icon;
-                $path_icon = public_path('frontend/img/' . $filename_icon);
-                $siteInfo->ste_favicon = $filename_icon;
+                $logo = $request->file('ste_favicon');
+                $filename = 'favicon.png'; // Set the desired filename here
+                $destinationPath = public_path('frontend/img');
+                $logo->move($destinationPath, $filename);
+                $siteInfo->ste_favicon = $filename;
             }
 
             if ($request->hasFile('ste_loader')) {
-                $loader = $request->file('ste_loader');
-                $extension_loader = $loader->getClientOriginalExtension();
-                $filename_loader = 'loader' . '.' . $extension_loader;
-                $path_loader = public_path('frontend/img/' . $filename_loader);
-                $siteInfo->ste_loader = $filename_loader;
+                $logo = $request->file('ste_loader');
+                $filename = 'loader.gif'; // Set the desired filename here
+                $destinationPath = public_path('frontend/img');
+                $logo->move($destinationPath, $filename);
+                $siteInfo->ste_loader = $filename;
             }
             $siteInfo->save();
 
