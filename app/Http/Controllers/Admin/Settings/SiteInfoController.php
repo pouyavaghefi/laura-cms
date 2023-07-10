@@ -48,16 +48,14 @@ class SiteInfoController extends AdminController
                 $logo = $request->file('ste_logo');
                 $extension_logo = $logo->getClientOriginalExtension();
                 $filename_logo = 'logo' . '.' . $extension_logo;
-                $final_filename_logo = 'logo' . '.' . 'png';
                 $path_logo = public_path('frontend/img/' . $filename_logo);
-                $siteInfo->ste_logo = $final_filename_logo;
+                $siteInfo->ste_logo = $filename_logo;
             }
 
             if ($request->hasFile('ste_favicon')) {
                 $icon = $request->file('ste_favicon');
                 $extension_icon = $icon->getClientOriginalExtension();
                 $filename_icon = 'icon' . '.' . $extension_icon;
-                $final_filename_icon = 'icon' . '.' . 'png';
                 $path_icon = public_path('frontend/img/' . $filename_icon);
                 $siteInfo->ste_favicon = $final_filename_icon;
             }
@@ -67,7 +65,7 @@ class SiteInfoController extends AdminController
                 $extension_loader = $loader->getClientOriginalExtension();
                 $filename_loader = 'loader' . '.' . $extension_loader;
                 $path_loader = public_path('frontend/img/' . $filename_loader);
-                $siteInfo->ste_loader = $final_filename_loader;
+                $siteInfo->ste_loader = $filename_loader;
             }
             $siteInfo->save();
 
