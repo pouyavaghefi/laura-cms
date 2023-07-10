@@ -65,6 +65,17 @@ class SiteInfoController extends AdminController
                 $pngImageIcon->save($path_icon);
                 $siteInfo->ste_favicon = $final_filename_icon;
             }
+
+            if ($request->hasFile('ste_loader')) {
+                $loader = $request->file('ste_loader');
+                $extension_loader = $loader->getClientOriginalExtension();
+                $filename_loader = 'loader' . '.' . $extension_loader;
+                $final_filename_loader = 'loader' . '.' . 'gif';
+                $path_loader = public_path('frontend/img/' . $filename_loader);
+                $gifImageLoader = Image::make($icon)->encode('png', 100);
+                $gifImageLoader->save($path_loader);
+                $siteInfo->ste_loader = $final_filename_loader;
+            }
             $siteInfo->save();
 
             return redirect()->back()->withSuccess('تغییرات با موفقیت اعمال شد');
