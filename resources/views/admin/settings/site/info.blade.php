@@ -22,6 +22,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box">
+                            @include('admin.layouts.partials.alerts')
                             <div class="row">
                                 @forelse($infos as $info)
                                     @php($menuCounter = 0)
@@ -37,9 +38,10 @@
                                                 @endif
                                             </b>
                                         </h4>
-                                        <form method="POST" action="{{ route('adm.settings.info.update',['info'=>$info->id]) }}" class="form-horizontal">
+                                        <form method="POST" action="{{ route('adm.settings.info.update',['info'=>$info->id]) }}" class="form-horizontal" enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')
+
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="name">نام</label>
                                                 <div class="col-sm-7">
@@ -117,17 +119,40 @@
                                                 <div class="col-sm-7">
                                                     <input type="file" class="form-control-file" id="logo" name="ste_logo">
                                                 </div>
+                                                @if(!empty($info->ste_logo))
+                                                    <div class="col-sm-offset-5 col-sm-7">
+                                                        <small class="text-muted red-para">ثبت شده</small>
+                                                    </div>
+                                                @endif
                                             </div>
+
 
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label" for="icon">آیکن</label>
                                                 <div class="col-sm-7">
-                                                    <input type="file" class="form-control-file" id="icon" name="ste_icon">
+                                                    <input type="file" class="form-control-file" id="icon" name="ste_favicon">
                                                 </div>
+                                                @if(!empty($info->ste_favicon))
+                                                    <div class="col-sm-offset-5 col-sm-7">
+                                                        <small class="text-muted red-para">ثبت شده</small>
+                                                    </div>
+                                                @endif
                                             </div>
 
                                             <div class="form-group">
-                                                <button class="btn btn-primary btn-lg btn-block">ثبت</button>
+                                                <label class="col-sm-5 control-label" for="loader">لودر</label>
+                                                <div class="col-sm-7">
+                                                    <input type="file" class="form-control-file" id="loader" name="ste_loader">
+                                                </div>
+                                                @if(!empty($info->ste_loader))
+                                                    <div class="col-sm-offset-5 col-sm-7">
+                                                        <small class="text-m    uted red-para">ثبت شده</small>
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-lg btn-block" onclick="showLoader(this)">ثبت</button>
                                             </div>
                                         </form>
                                     </div><!-- end col -->

@@ -18,7 +18,6 @@ use App\Http\Controllers\Admin\Programmer\ErrorLogController;
 use App\Http\Controllers\Admin\Menu\MenuController;
 use App\Http\Controllers\Admin\Menu\SubsetController;
 use App\Http\Controllers\Admin\Programmer\BaseInfoController;
-use App\Http\Controllers\Admin\Settings\AuthUserController;
 
 
 /*
@@ -78,14 +77,7 @@ Route::middleware(['auth.admin'])->group(function () {
     });
 
     Route::prefix('settings')->name('settings.')->group(function () {
-        Route::resource('/info', SiteInfoController::class);
-
-        Route::prefix('settings')->name('auth.')->group(function () {
-            Route::get('/auth-user', [AuthUserController::class, 'viewAuthUser'])->name('users');
-            Route::post('/auth-user', [AuthUserController::class, 'submitAuthUser']);
-            Route::get('/auth-admin', [AuthUserController::class, 'viewAuthAdmin'])->name('admins');
-            Route::post('/auth-admin', [AuthUserController::class, 'submitAuthAdmin']);
-        });
+        Route::resource('/info', SiteInfoController::class)->only(['index','update','destroy']);
     });
 
     Route::prefix('members')->name('members.')->group(function () {

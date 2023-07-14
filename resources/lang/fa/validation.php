@@ -208,5 +208,9 @@ return [
 		"password_new_confirmation" => "تایید رمز جدید",
 		"usr_name" => "نام کاربری",
 		"mbr_type" => "نوع حساب کاربر",
+		"ste_description" => "توضیحات سایت",
+		"ste_email" => "ایمیل سایت",
+		"ste_phone" => "شماره تلفن سایت",
+		"ste_address" => "ادرس سایت",
     ],
 ];
