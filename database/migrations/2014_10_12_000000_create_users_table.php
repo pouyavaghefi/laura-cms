@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('usr_name');
             $table->tinyInteger('usr_is_active')->default(0);
+            $table->tinyInteger('usr_is_super')->default(0);
             $table->tinyInteger('usr_is_admin')->default(0);
             $table->string('usr_email')->nullable()->unique();
             $table->timestamp('usr_email_verified_at')->nullable();

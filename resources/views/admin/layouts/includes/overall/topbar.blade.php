@@ -3,14 +3,11 @@
 
     // Split the string into an array of words
     $ste_words = explode(' ', $ste_name);
-
-    // Store each word in separate variables
-    list($word1, $word2) = $ste_words;
-
-    // Check if the array contains exactly two words
-    if (count($ste_words) === 2) {
+    if(count($ste_words) >= 2){
+        // Store each word in separate variables
+        list($word1, $word2) = $ste_words;
         $show_spans = true;
-    } else {
+    }else{
         $show_spans = false;
     }
 @endphp
