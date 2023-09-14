@@ -1,21 +1,8 @@
-@php
-    $ste_name = $siteInfo->ste_name;
-
-    // Split the string into an array of words
-    $ste_words = explode(' ', $ste_name);
-    if(count($ste_words) >= 2){
-        // Store each word in separate variables
-        list($word1, $word2) = $ste_words;
-        $show_spans = true;
-    }else{
-        $show_spans = false;
-    }
-@endphp
 <div class="topbar">
 
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="{{ $siteInfo->ste_url }}" target="_blank" class="logo">
+        <a href="{{ ste_url($siteInfo) }}" target="_blank" class="logo">
             @if($show_spans == true)
                 <span>{{ $word1 }}<span>&nbsp;{{ $word2 }}</span></span>
             @else
