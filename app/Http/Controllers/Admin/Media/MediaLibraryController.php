@@ -109,7 +109,7 @@ class MediaLibraryController extends Controller
             }
 
             $dimensions = getimagesize($uploadedFile);
-            // Save the file details in the database
+
             $media = new MediaLibrary();
             $media->med_group_base = $medGroupBase;
             $media->med_uploader_id = auth()->user()->id;

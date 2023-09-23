@@ -27,8 +27,9 @@ return new class extends Migration
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
 
-            $table->foreign('usr_creator_id')->on('users')->references('id')->onDelete('cascade');
-            $table->foreign('usr_editor_id')->on('users')->references('id')->onDelete('cascade');
+            // Define foreign keys without cascade delete
+            $table->foreign('usr_creator_id')->references('id')->on('users');
+            $table->foreign('usr_editor_id')->references('id')->on('users');
         });
     }
 

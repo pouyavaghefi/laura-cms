@@ -21,6 +21,7 @@ class SiteSeeder extends Seeder
                     'ste_description' => '',
                     'ste_logo' => '',
                     'ste_favicon' => '',
+                    'ste_loader' => '',
                     'ste_email' => '',
                     'ste_phone' => '',
                     'ste_address' => '',

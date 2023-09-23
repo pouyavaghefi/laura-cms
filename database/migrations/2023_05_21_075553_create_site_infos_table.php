@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('ste_description')->nullable();
             $table->string('ste_logo')->nullable();
             $table->string('ste_favicon')->nullable();
+            $table->string('ste_loader')->nullable();
             $table->string('ste_email')->nullable();
             $table->string('ste_phone')->nullable();
             $table->string('ste_address')->nullable();

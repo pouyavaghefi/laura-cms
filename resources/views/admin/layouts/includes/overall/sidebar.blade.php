@@ -72,7 +72,7 @@
                 </li>
 
                 <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect {{ $currentRoute == 'adm.settings.info.index' ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> تنظیمات </span> <span class="menu-arrow"></span></a>
+                    <a href="javascript:void(0);" class="waves-effect {{ in_array($currentRoute, ['adm.settings.info.index', 'adm.settings.auth.users', 'adm.settings.auth.admins']) ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> تنظیمات </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled">
                         <li class="{{ $currentRoute == 'adm.settings.info.index' ? 'active' : '' }}"><a href="{{ route('adm.settings.info.index') }}">سایت های متصل</a></li>
                     </ul>
