@@ -16,8 +16,8 @@ class SiteSeeder extends Seeder
         DB::table('site_infos')->insert(
             array(
                 [
-                    'ste_name' => 'دی گستر',
-                    'ste_url' => 'https://daygostar.com/',
+                    'ste_name' => 'بات رایدر',
+                    'ste_url' => 'https://botrider.ir/',
                     'ste_description' => '',
                     'ste_logo' => '',
                     'ste_favicon' => '',
