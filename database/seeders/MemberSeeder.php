@@ -13,7 +13,7 @@ class MemberSeeder extends Seeder
      */
     public function run(): void
     {
-        $userAdded = DB::table('users')->where('usr_name', 'vaghefi_p')->first();
+        $userAdded = DB::table('users')->where('usr_is_super', 1)->first();
         DB::table('members')->insert(
             array(
                 [

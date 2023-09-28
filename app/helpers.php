@@ -9,6 +9,18 @@ if(!function_exists('digits_persian')){
     }
 }
 
+if(!function_exists('ste_name')){
+    function ste_name($siteInfo){
+        return $siteInfo->ste_name;
+    }
+}
+
+if(!function_exists('ste_url')){
+    function ste_url($siteInfo){
+        return $siteInfo->ste_url;
+    }
+}
+
 if(!function_exists('getFileSizeFormat')){
     function getFileSizeFormat($size)
     {

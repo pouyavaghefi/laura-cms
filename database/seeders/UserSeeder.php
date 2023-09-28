@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
                 [
                     'usr_name' => 'vaghefi_p',
                     'usr_is_active' => '1',
+                    'usr_is_super' => '1',
                     'usr_is_admin' => '1',
                     'usr_email' => 'vagefipouya@yahoo.com   ',
                     'usr_email_verified_at' => Carbon::now(),

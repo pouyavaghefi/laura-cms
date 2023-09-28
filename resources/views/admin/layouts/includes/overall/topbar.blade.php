@@ -3,6 +3,8 @@
     <div class="topbar-left">
         <a href="{{ $siteInfo->ste_url }}" target="_blank" class="logo">
             @if($showSpans == true)
+        <a href="{{ ste_url($siteInfo) }}" target="_blank" class="logo">
+            @if($show_spans == true)
                 <span>{{ $word1 }}<span>&nbsp;{{ $word2 }}</span></span>
             @else
                 <span>{{ $siteInfo->ste_name }}</span>
