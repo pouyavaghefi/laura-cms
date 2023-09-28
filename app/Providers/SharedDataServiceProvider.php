@@ -23,7 +23,20 @@ class SharedDataServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $siteInfo = SiteInfo::find(1);
-            $view->with('siteInfo', $siteInfo);
+            if (!$siteInfo) {
+                throw new \Exception("SiteInfo record not found.");
+            }
+            $ste_name = $siteInfo->ste_name;
+            $ste_words = explode(' ', $ste_name);
+            $show_spans = count($ste_words) >= 2;
+            list($word1, $word2) = $show_spans ? $ste_words : ['', ''];
+
+            $view->with([
+                'siteInfo' => $siteInfo,
+                'showSpans' => $show_spans,
+                'word1' => $word1,
+                'word2' => $word2,
+            ]);
         });
     }
 }
