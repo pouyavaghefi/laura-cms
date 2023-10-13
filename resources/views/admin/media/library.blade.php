@@ -51,8 +51,8 @@
                                             <td>{{ pathinfo($media->med_name, PATHINFO_FILENAME) }}</td>
                                             <td>
                                                 @if ((($media->med_mime_type == "image/png") || ($media->med_mime_type == "image/jpeg") || ($media->med_mime_type == "image/jpg")))
-                                                    <a href="{{ asset('storage/' . str_replace('public/', '', $media->med_path)) }}" target="_blank">
-                                                        <img src="{{ asset('storage/' . str_replace('public/', '', $media->med_path)) }}" alt="Thumbnail" style="width: 100px; height: auto;">
+                                                    <a href="" target="_blank">
+                                                        <img src="{{ asset('storage/'.$media->med_path) }}" alt="Thumbnail" style="width: 100px; height: auto;">
                                                     </a>
                                                 @endif
                                             </td>

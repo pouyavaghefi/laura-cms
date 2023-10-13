@@ -6,14 +6,6 @@
 				<div class="col-md-6">
                     <div class="form-group">
                         <div class="checkbox checkbox-primary">
-                            <input id="checkbox1" type="checkbox" name="original_name">
-                            <label for="checkbox1">
-                                استفاده از نام فایل به جای انتخاب نام تصادفی
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox checkbox-primary">
                             <input id="checkbox2" type="checkbox" name="resize_images">
                             <label for="checkbox2">
                                 ریسایز کردن عکس
