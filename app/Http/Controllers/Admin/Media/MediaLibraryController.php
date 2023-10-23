@@ -45,7 +45,7 @@ class MediaLibraryController extends AdminController
             $fileFormat = $uploadedFile->getClientOriginalExtension();
 
             // Specify the storage directory
-            $storageDirectory = 'public/medias/' . $fileFormat . '/';
+            $storageDirectory = 'medias/' . $fileFormat . '/';
 
             // Store the file in the storage directory with the generated filename
             $path = $uploadedFile->storeAs($storageDirectory, $fileName . '.' . $fileFormat);
