@@ -75,14 +75,14 @@ class BaseSeeder extends Seeder
                     'bas_type' => 'postType',
                     'bas_value' => 'blogs',
                 ],
-                [
+
                     'bas_type' => 'uploadType',
                     'bas_value' => 'posts',
                 ],
                 [
                     'bas_type' => 'uploadType',
                     'bas_value' => 'products',
-                ]
+                ],
             )
         );
     }
