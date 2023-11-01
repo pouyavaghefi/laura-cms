@@ -1,19 +1,31 @@
-/.phpunit.cache
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
+.idea/
+
+# Ignore .env files
 .env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-/.fleet
-/.idea
-/.vscode
+
+# Ignore Composer's vendor directory
+/vendor/
+
+# Ignore node_modules directory
+/node_modules/
+
+# Ignore Laravel's runtime storage files
+/storage/
+/bootstrap/cache/
+
+# Ignore Laravel's public storage directory
+/public/storage/
+
+# Ignore SQLite database files
+/database/*.sqlite
+
+# Ignore Homestead configuration files
+/Homestead.json
+/Homestead.yaml
+
+# Ignore log files
+/storage/logs/*.log
+/storage/framework/views/*.php
+/storage/debugbar/
+/storage/app/public/
+/public/horizon/
