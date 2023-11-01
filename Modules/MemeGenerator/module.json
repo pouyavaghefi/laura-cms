@@ -1,0 +1,11 @@
+{
+    "name": "MemeGenerator",
+    "alias": "memegenerator",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\MemeGenerator\\Providers\\MemeGeneratorServiceProvider"
+    ],
+    "files": []
+}

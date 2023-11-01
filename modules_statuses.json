@@ -1,3 +1,5 @@
 {
-    "ACL": true
+    "ACL": true,
+    "MemeUpload": true,
+    "MemeGenerator": true
 }

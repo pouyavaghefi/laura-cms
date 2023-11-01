@@ -274,4 +274,20 @@ return [
     ],
 
     'activator' => 'file',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Modules
+    |--------------------------------------------------------------------------
+    |
+    | Initialized Modules
+    |
+    */
+
+    'modules' => [
+        'memegenerator' => [
+            'enabled' => env('MEMEGENERATOR_MODULE_ENABLED', false),
+        ],
+        // Other modules configuration...
+    ],
 ];

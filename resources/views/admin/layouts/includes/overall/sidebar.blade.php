@@ -77,9 +77,21 @@
                         <li class="{{ $currentRoute == 'adm.settings.info.index' ? 'active' : '' }}"><a href="{{ route('adm.settings.info.index') }}">سایت های متصل</a></li>
                     </ul>
                 </li>
+
+                @if (config('modules.modules.memegenerator.enabled'))
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect {{ in_array($currentRoute, ['adm.articles.create', 'adm.articles.index', 'adm.articles.edit']) ? 'active' : '' }}"><i class="zmdi zmdi-invert-colors"></i> <span> میم جنریتور </span> <span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li class="{{ $currentRoute == 'adm.memeg.create' ? 'active' : '' }}"><a href="{{ route('adm.memeg.create') }}">ایجاد میم</a></li>
+                            <li class="{{ $currentRoute == 'adm.memeg.index' ? 'active' : '' }}"><a href="{{ route('adm.memeg.index') }}">همه میم ها</a></li>
+                            <li class="{{ $currentRoute == 'adm.memeg.index' ? 'active' : '' }}"><a href="{{ route('adm.memeg.index') }}">تنظیمات</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
             <div class="clearfix"></div>
         </div>
+
         <!-- Sidebar -->
         <div class="clearfix"></div>
 
