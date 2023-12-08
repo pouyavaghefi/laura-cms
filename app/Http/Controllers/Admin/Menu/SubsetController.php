@@ -47,7 +47,7 @@ class SubsetController extends Controller
             'mel_color' => $data['mel_color'] ?? null,
             'mel_hover_color' => $data['mel_hover_color'] ?? null,
             'mel_icon' => $data['mel_icon'] ?? null,
-            'mel_show_icon_only' => $icon_only,
+            'mel_show_icon_only' => $data['mel_show_icon_only'] ?? null,
             'mel_men_id' => $id,
             'mel_parent_id' => $data['mel_parent_id'] ?? null,
         ]);
