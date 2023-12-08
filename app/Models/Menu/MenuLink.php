@@ -38,4 +38,9 @@ class MenuLink extends Model
     {
         return $this->hasMany(MenuLink::class, 'mel_parent_id', 'id');
     }
+
+    public function subsets()
+    {
+        return $this->hasMany(MenuLink::class, 'mel_parent_id', 'id');
+    }
 }

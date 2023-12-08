@@ -11,7 +11,7 @@ class SubsetController extends Controller
 {
     public function viewSubsets($id)
     {
-        $countParents = MenuLink::where('mel_parent_id',null)->count();
+        $countParents = MenuLink::where('mel_parent_id',null)->where('mel_men_id',$id)->count();
         $menu = Menu::with(['menuLinks' => function ($query) use ($id) {
             $query->where('mel_men_id', $id);
         }])->find($id);
