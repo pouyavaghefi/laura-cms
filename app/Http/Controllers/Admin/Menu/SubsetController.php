@@ -40,13 +40,17 @@ class SubsetController extends Controller
             'mel_url' => 'nullable',
         ]);
 
+        $icon_only = null;
+        if(is_null($data['mel_show_icon_only']))
+            $icon_only = 1;
+
         MenuLink::create([
             'mel_label' => $data['mel_label'],
             'mel_url' => $data['mel_url'] ?? null,
             'mel_color' => $data['mel_color'] ?? null,
             'mel_hover_color' => $data['mel_hover_color'] ?? null,
             'mel_icon' => $data['mel_icon'] ?? null,
-            'mel_show_icon_only' => $data['mel_show_icon_only'] ?? null,
+            'mel_show_icon_only' => $icon_only,
             'mel_men_id' => $id,
             'mel_parent_id' => $data['mel_parent_id'] ?? null,
         ]);
