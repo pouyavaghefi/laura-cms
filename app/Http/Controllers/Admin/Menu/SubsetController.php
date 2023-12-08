@@ -12,14 +12,18 @@ class SubsetController extends Controller
     public function viewSubsets($id)
     {
         $countParents = MenuLink::where('mel_parent_id',null)->count();
-        $menu = Menu::find($id)::with('menuLinks')->first();
+        $menu = Menu::with(['menuLinks' => function ($query) use ($id) {
+            $query->where('mel_men_id', $id);
+        }])->find($id);
 
         return view('admin.menus.subsets.subsets', compact('menu', 'countParents'));
     }
 
     public function createSubsets($id)
     {
-        $menu = Menu::find($id)::with('menuLinks')->first();
+        $menu = Menu::with(['menuLinks' => function ($query) use ($id) {
+            $query->where('mel_men_id', $id);
+        }])->find($id);
 
         return view('admin.menus.subsets.form', compact('menu'));
     }
