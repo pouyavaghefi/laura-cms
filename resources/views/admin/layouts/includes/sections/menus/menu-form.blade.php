@@ -41,14 +41,26 @@
     <br>
 
     <div class="form-group">
-        <label class="col-md-2 control-label">رنگ پس زمینه</label>
-        <div class="col-md-10">
-            <input type="color" name="men_bg_color" class="form-control @error('men_bg_color') is-invalid @enderror" placeholder="رنگ منو را وارد کنید" value="{{ old('men_bg_color' ,!empty($menu) ? $menu->men_bg_color : '') }}">
-            @error('men_bg_color')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
+  <div class="form-check">
+    <input type="radio" class="form-check-input" id="bgColorYes" name="bgColor" value="has-bg" x-model="selectedOption">
+    <label class="form-check-label" for="bgColorYes">رنگ پس زمینه دارد</label>
+  </div>
+  <div class="form-check">
+    <input type="radio" class="form-check-input" id="bgColorNo" name="bgColor" value="no-bg" x-model="selectedOption">
+    <label class="form-check-label" for="bgColorNo">رنگ پس زمینه ندارد</label>
+  </div>
+</div>
+
+    <br>
+
+    <div class="form-group" x-show="selectedOption === 'has-bg'">
+  <label class="col-md-2 control-label">رنگ پس زمینه</label>
+  <div class="col-md-10">
+    <input type="color" name="men_bg_color" class="form-control" placeholder="رنگ منو را وارد کنید" x-model="menBgColor">
+    <span x-show="selectedOption === 'has-bg' && menBgColor === ''" class="text-danger">Please enter a color</span>
+  </div>
+</div>
+
 
     <br>
 

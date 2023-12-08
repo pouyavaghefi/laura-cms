@@ -40,7 +40,7 @@ if(!empty($menu)){
                                 @endif
                             </h4>
 
-                            <div class="row">
+                            <div class="row" x-data="{ selectedOption: 'no-bg' }">
                                 @include('admin.layouts.partials.alerts')
 
                                 <form method="POST" action="{{ !empty($menu) ? route('adm.menus.update', $menu->id) : route('adm.menus.store') }}">
