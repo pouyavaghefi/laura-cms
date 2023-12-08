@@ -38,11 +38,8 @@ class SubsetController extends Controller
             'mel_hover_color' => 'nullable',
             'mel_icon' => 'nullable',
             'mel_url' => 'nullable',
+            'mel_show_icon_only' => 'nullable'
         ]);
-
-        $icon_only = null;
-        if(is_null($data['mel_show_icon_only']))
-            $icon_only = 1;
 
         MenuLink::create([
             'mel_label' => $data['mel_label'],
