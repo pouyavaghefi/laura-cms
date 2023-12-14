@@ -20,7 +20,8 @@ class UserManagementController extends AdminController
         $provinces = Province::all();
         $cities = City::all();
         $genders = BaseInfo::where('bas_type','gender')->get();
-        return view('admin.members.add', compact('countries','cities','provinces','genders'));
+        $mtypes = BaseInfo::where('bas_type','memberType')->get();
+        return view('admin.members.add', compact('countries','cities','provinces','genders','mtypes'));
     }
 
     public function addMember(Request $request)

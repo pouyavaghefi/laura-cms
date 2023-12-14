@@ -30,8 +30,9 @@
     <label class="col-md-2 control-label">نوع اکانت</label>
     <div class="col-md-10">
         <select name="usr_is_admin" class="form-control">
-            <option value="1">ادمین</option>
-            <option value="0">معمولی</option>
+            @foreach($mtypes as $type)
+                <option value="{{ $type->id }}">{{ $type->bas_value }}</option>
+            @endforeach
         </select>
         @error('usr_is_admin')
         <span class="text-danger">{{ $message }}</span>
