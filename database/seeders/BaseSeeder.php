@@ -82,6 +82,14 @@ class BaseSeeder extends Seeder
                 [
                     'bas_type' => 'uploadType',
                     'bas_value' => 'products',
+                ],
+                [
+                    'bas_type' => 'memberType',
+                    'bas_value' => 'یوزر',
+                ],
+                [
+                    'bas_type' => 'memberType',
+                    'bas_value' => 'سوپریوزر',
                 ]
             )
         );
